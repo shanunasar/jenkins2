@@ -3,17 +3,17 @@ pipeline {
 
     stages {
 
-        stage('Install Dependencies') {
-            steps {
-                bat 'pip install -r requirements.txt'
-            }
-        }
+       stage('Install Dependencies') {
+    steps {
+        bat 'python -m pip install -r requirements.txt'
+    }
+}
 
         stage('Test') {
-            steps {
-                bat 'pytest'
-            }
-        }
+    steps {
+        bat 'python -m pytest'
+    }
+}
 
         stage('Build') {
             steps {
