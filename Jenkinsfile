@@ -5,19 +5,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Users\\theed\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Test') {
             steps {
-                bat '"C:\\Users\\theed\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest'
+                bat 'pytest'
             }
         }
 
         stage('Build') {
             steps {
-                bat '"C:\\Users\\theed\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip freeze'
+                bat 'mkdir build'
+                bat 'copy app.py build\\'
+                bat 'copy requirements.txt build\\'
             }
         }
     }
